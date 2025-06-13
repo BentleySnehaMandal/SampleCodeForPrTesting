@@ -1,41 +1,39 @@
-print("Welcome to the Quiz Game!\n")
+def ask_question(question, options, answer):
+    print(question)
+    for opt in options:
+        print(opt)
+    user = input("Your answer (A/B/C/D): ")
+    
+    if user == answer:
+        print("Correct!\n")
+        return 1
+    else:
+        print(f"Wrong! The correct answer was {answer}.\n")
+        return 0
 
-score = 0
+def run_quiz():
+    questions = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["A) Paris", "B) London", "C) Rome", "D) Berlin"],
+            "answer": "A"
+        },
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "options": ["A) Earth", "B) Mars", "C) Jupiter", "D) Venus"],
+            "answer": "B"
+        },
+        {
+            "question": "Who wrote 'Hamlet'?",
+            "options": ["A) Charles Dickens", "B) Mark Twain", "C) William Shakespeare", "D) Jane Austen"],
+            "answer": "C"
+        }
+    ]
+    print("Welcome to the Quiz Game!\n")
+    score = 0
+    for q in questions:
+        score += ask_question(q["question"], q["options"], q["answer"])
+    print(f"Quiz finished! Your score: {score}/{len(questions)}")
 
-print("Q1: What is the capital of France?")
-print("A) Paris")
-print("B) London")
-print("C) Rome")
-print("D) Berlin")
-ans1 = input("Your answer (A/B/C/D): ").strip().upper()
-if ans1 == "A":
-    print("Correct!\n")
-    score += 1
-else:
-    print("Wrong! The correct answer was A.\n")
-
-print("Q2: Which planet is known as the Red Planet?")
-print("A) Earth")
-print("B) Mars")
-print("C) Jupiter")
-print("D) Venus")
-ans2 = input("Your answer (A/B/C/D): ").strip().upper()
-if ans2 == "B":
-    print("Correct!\n")
-    score += 1
-else:
-    print("Wrong! The correct answer was B.\n")
-
-print("Q3: Who wrote 'Hamlet'?")
-print("A) Charles Dickens")
-print("B) Mark Twain")
-print("C) William Shakespeare")
-print("D) Jane Austen")
-ans3 = input("Your answer (A/B/C/D): ").strip().upper()
-if ans3 == "C":
-    print("Correct!\n")
-    score += 1
-else:
-    print("Wrong! The correct answer was C.\n")
-
-print(f"Quiz finished! Your score: {score}/3")
+if __name__ == "__main__":
+    run_quiz()
