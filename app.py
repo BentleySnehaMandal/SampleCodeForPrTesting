@@ -25,7 +25,7 @@ if ans2 == "B":
     score += 1
 else:
     print("Wrong! The correct answer was B.\n")
-#  added a small command to test pulling and pushing changes fom github
+
 print("Q3: Who wrote 'Hamlet'?")
 print("A) Charles Dickens")
 print("B) Mark Twain")
